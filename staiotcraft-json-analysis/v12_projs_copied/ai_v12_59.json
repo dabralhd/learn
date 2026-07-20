@@ -1,0 +1,545 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "ai_project_name": "my_satr",
+    "display_name": "Smart Asset Tracking",
+    "description": "Classification of package conditions using the MLC to detect stationary orientation (upright or not) or moving and shaking states.\n\nWith this example, you can individually track the state of a physical item, such as a package, to monitor whether it is moving or being shaken too harshly, and whether it is still upright or not. Classification detects even brief events. You can clone and retrain the model to adapt classes to your use case, for example by tailoring the 'shaken' class to particularly strong motion or, conversely, by making it more sensitive for fragile items. To use this example, simply position the board on top of the item, ensuring it is secured firmly.",
+    "type": "industrial",
+    "uuid": "06733d61-5c3a-4a15-940f-bfe173dbc189",
+    "version": "1.0.0",
+    "creation_time": "2026-05-11 12:37:08.565053",
+    "last_update_time": "2026-05-11 12:37:08.565053",
+    "project_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01",
+    "models": [
+        {
+            "uuid": "6d1fd38d-3af2-4527-bee0-7b7434bc154c",
+            "name": "smart_asset_tracking_on_steval_mkboxpro",
+            "description": "Model to recognize position and orientation of a tracked item, with an Auto-ML based approach.",
+            "creation_time": "2026-05-11 12:37:08.565067",
+            "last_update_time": "2026-05-11 12:37:08.565080",
+            "model_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "stationary_upright",
+                    "stationary_not_upright",
+                    "motion",
+                    "shaken"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01krbgn3z72nmnh32vp5tp9j3a",
+                "name": "smart_asset_tracking_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv16x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-ds-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": null,
+                "artifacts": [
+                    "activities_training.json",
+                    "counts.json",
+                    "feat_names.json",
+                    "kmeans_cluster_labels.json",
+                    "lda.onnx",
+                    "my_kmeans.json",
+                    "my_tree.onnx",
+                    "window_size_odr_channels.json"
+                ],
+                "reports": []
+            },
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv16x_mlc.json",
+                    "lsm6dsv16x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "14f31741-02d8-4e6c-9cc2-95cb6813c466",
+            "name": "smart_asset_tracking_on_nucleo_u575zi_q",
+            "description": "Model to recognize position and orientation of a tracked item, with an Auto-ML based approach.",
+            "creation_time": "2026-05-11 12:37:08.565070",
+            "last_update_time": "2026-05-11 12:37:08.565085",
+            "model_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "stationary_upright",
+                    "stationary_not_upright",
+                    "motion",
+                    "shaken"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01krbgn6ane1pdw2a9nxnr4hhb",
+                "name": "smart_asset_tracking_on_nucleo_u575zi_q"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "ism6hg256x",
+                "device": "nucleo-u575zi-q"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "ism6hg256x_mlc.json",
+                    "ism6hg256x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "f7b0349e-af9f-4776-a842-b3eba8458f93",
+            "name": "smart_asset_tracking_on_nucleo_h7a3zi_q",
+            "description": "Model to recognize position and orientation of a tracked item, with an Auto-ML based approach.",
+            "creation_time": "2026-05-11 12:37:08.565073",
+            "last_update_time": "2026-05-11 12:37:08.565088",
+            "model_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "stationary_upright",
+                    "stationary_not_upright",
+                    "motion",
+                    "shaken"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01krbgn7tg57rc067texkswssq",
+                "name": "smart_asset_tracking_on_nucleo_h7a3zi_q"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "ism6hg256x",
+                "device": "nucleo-h7a3zi-q"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "ism6hg256x_mlc.json",
+                    "ism6hg256x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "52e1e15d-8e63-4127-a99e-8cc308bbc2c4",
+            "name": "smart_asset_tracking_on_nucleo_f401re",
+            "description": "Model to recognize position and orientation of a tracked item, with an Auto-ML based approach.",
+            "creation_time": "2026-05-11 12:37:08.565076",
+            "last_update_time": "2026-05-11 12:37:08.565092",
+            "model_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "stationary_upright",
+                    "stationary_not_upright",
+                    "motion",
+                    "shaken"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01krbgn9amwyr5f95dydxkrrjd",
+                "name": "smart_asset_tracking_on_nucleo_f401re"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "ism6hg256x",
+                "device": "nucleo-stm32f401re"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "ism6hg256x_mlc.json",
+                    "ism6hg256x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "955bd8e4-696d-4e48-8b06-87699c2a535e",
+            "name": "lsm6dsv320x_tennis_activity",
+            "dataset": {
+                "name": "lsm6dsv320x_tennis_activity",
+                "dataset_id": "01krv2ahjbr3qfrfntbqprq2n9"
+            },
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "serve",
+                    "forehand",
+                    "backhand"
+                ]
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv320x",
+                "device": "steval-mkboxpro"
+            },
+            "creation_time": "2026-05-17 13:36:49.557648",
+            "last_update_time": "2026-05-17 13:36:49.557661",
+            "model_owner_uuid": "1bdf5802-558d-4df1-88d5-2277d96efd01"
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "33c88fc8-e3ac-490b-87b1-3b871ba56987",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;8",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_5_0.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "154819db-6e55-4a53-9fc8-2a410f40a1cb",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/FP_SNS_DATALOG2_Datalog2-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:FP_SNS_DATALOG2_Datalog2;8",
+            "binary_uri": "/usb/bin/steval-mkboxpro/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 451,
+            "protocol": 2
+        },
+        {
+            "uuid": "c9a01687-7b31-4998-a612-a7c514ce474f",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/nucleo_u575zi_q/FP_SNS_DATALOG2_Datalog2_IKS5A1-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:nucleo_u575zi_q:FP_SNS_DATALOG2_Datalog2_IKS5A1;1",
+            "binary_uri": "/usb/bin/nucleo-u575zi-q/FP-SNS-DATALOG2_Datalog2-IKS5A1_3_2_0.bin",
+            "binary_id": 450,
+            "protocol": 2
+        },
+        {
+            "uuid": "09562662-75a0-4e49-9f67-319bc9b78a9f",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/nucleo_h7a3zi_q/FP_SNS_DATALOG2_Datalog2_IKS5A1-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:nucleo_h7a3zi_q:FP_SNS_DATALOG2_Datalog2_IKS5A1;1",
+            "binary_uri": "/usb/bin/nucleo-h7a3zi-q/FP-SNS-DATALOG2_Datalog2-IKS5A1_3_2_0.bin",
+            "binary_id": 447,
+            "protocol": 2
+        },
+        {
+            "uuid": "ed84ce8b-22be-48c0-bcf0-9606d58f507a",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/nucleo_stm32f401re/STAIOTCRAFT_SDATALOG-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:nucleo_stm32f401re:STAIOTCRAFT_SDATALOG;1",
+            "binary_uri": "/usb/bin/nucleo-stm32f401re/STAIOTCRAFT_SDATALOG_1_0_0.bin",
+            "binary_id": 518,
+            "protocol": 2
+        },
+        {
+            "uuid": "5ab51349-586f-48ec-ab2b-7582d01dccb1",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_1_0_0.bin",
+            "binary_id": 517,
+            "protocol": 2
+        },
+        {
+            "uuid": "1a4db4a4-3170-4dae-9c6e-14ca66551883",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG_RUST-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG_RUST;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_RUST_1_0_0.bin",
+            "binary_id": 516,
+            "protocol": 2
+        },
+        {
+            "uuid": "d24b99e6-d1ff-4e70-ab5b-dd62d3352c97",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 484,
+            "protocol": 1
+        },
+        {
+            "uuid": "0ffa9949-227e-4044-9628-1a9ad0fd4754",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_SSM-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_SSM;1",
+            "binary_uri": "/bluestsdkv2/bin/steval-mkboxpro/STAIOTCRAFT_AI_SSM_1_0_0.bin",
+            "binary_id": 529,
+            "protocol": 0,
+            "bluest_v3_payload": {
+                "device_id": "0x0D",
+                "fw_id": "0x29",
+                "payload_id": "0x0001",
+                "decoding_schema": [
+                    {
+                        "component": "lsm6dsv16x_mlc",
+                        "telemetry": "label_id",
+                        "type": "int8_t"
+                    }
+                ]
+            }
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "f9d58cbc-9933-44f3-a980-94bb5e90eaa8",
+            "display_name": "Smart Asset Tracking with SensorTile.box PRO and LSM6DSV16X sensor.",
+            "description": "End-to-end system deployment for Smart Asset Tracking use case on the SensorTile.box PRO using the LSM6DSV16X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "33c88fc8-e3ac-490b-87b1-3b871ba56987",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "154819db-6e55-4a53-9fc8-2a410f40a1cb",
+                            "1a4db4a4-3170-4dae-9c6e-14ca66551883"
+                        ],
+                        "application": "154819db-6e55-4a53-9fc8-2a410f40a1cb",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "smart_asset_tracking_on_steval_mkboxpro"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "d24b99e6-d1ff-4e70-ab5b-dd62d3352c97",
+                            "0ffa9949-227e-4044-9628-1a9ad0fd4754"
+                        ],
+                        "application": "d24b99e6-d1ff-4e70-ab5b-dd62d3352c97",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "smart_asset_tracking_on_steval_mkboxpro",
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv16x_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "uuid": "def15fff-3d45-43c4-920b-4e9c659f4f30",
+            "display_name": "Smart Asset Tracking with NUCLEO-U575ZI-Q + X-NUCLEO-IKS5A1 and ISM6HG256X sensor.",
+            "description": "End-to-end system deployment for Smart Asset Tracking use case on the NUCLEO-U575ZI-Q + X-NUCLEO-IKS5A1 using the ISM6HG256X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "33c88fc8-e3ac-490b-87b1-3b871ba56987",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "c9a01687-7b31-4998-a612-a7c514ce474f"
+                        ],
+                        "application": "c9a01687-7b31-4998-a612-a7c514ce474f",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "smart_asset_tracking_on_nucleo_u575zi_q"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "uuid": "45f84a86-6122-499f-8839-f0e2d313ccbd",
+            "display_name": "Smart Asset Tracking with NUCLEO-H7A3ZI-Q + X-NUCLEO-IKS5A1 and ISM6HG256X sensor.",
+            "description": "End-to-end system deployment for Smart Asset Tracking use case on the NUCLEO-H7A3ZI-Q + X-NUCLEO-IKS5A1 using the ISM6HG256X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "33c88fc8-e3ac-490b-87b1-3b871ba56987",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "09562662-75a0-4e49-9f67-319bc9b78a9f"
+                        ],
+                        "application": "09562662-75a0-4e49-9f67-319bc9b78a9f",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "smart_asset_tracking_on_nucleo_h7a3zi_q"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "uuid": "69f17fea-8ee6-4270-a624-368f9b4926a1",
+            "display_name": "Smart Asset Tracking with NUCLEO-F401RE + X-NUCLEO-IKS5A1 and ISM6HG256X sensor.",
+            "description": "End-to-end system deployment for Smart Asset Tracking use case on the NUCLEO-F401RE + X-NUCLEO-IKS5A1 using the ISM6HG256X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "33c88fc8-e3ac-490b-87b1-3b871ba56987",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "ed84ce8b-22be-48c0-bcf0-9606d58f507a"
+                        ],
+                        "application": "ed84ce8b-22be-48c0-bcf0-9606d58f507a",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "smart_asset_tracking_on_nucleo_f401re"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

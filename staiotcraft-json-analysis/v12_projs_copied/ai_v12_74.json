@@ -1,0 +1,235 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "ai_project_name": "TennisExample",
+    "display_name": "Tennis Activity Recognition",
+    "description": "Classification of tennis shots using the MLC, including forehand, backhand, slice-forehand, slice-backhand, and serve strokes.\n\nThis example leverages both the accelerometer and the gyroscope sensors to better detect the movements. To use this example effectively, plug the DIL24 extension onto the board and place the board on the outside of the right wrist and secure it firmly. Make sure it is oriented in such a way that the two buttons are facing toward your shoulder, with the LEDs and logos visible and facing outward. In case you need a different placement on the wrist or want to add some more movements of your own, just clone the project into your workspace, collect a new dataset, and retrain the model.",
+    "type": "entertainment",
+    "uuid": "5bb8b78a-2a9c-48db-9346-b2afe10db0fe",
+    "version": "1.0.0",
+    "creation_time": "2026-04-27 15:35:49.502272",
+    "last_update_time": "2026-04-27 15:35:49.502272",
+    "project_owner_uuid": "d2a55444-90f1-7018-9a49-b90c3a197d0b",
+    "models": [
+        {
+            "uuid": "1ce9a92c-5a17-48c7-bea3-8515665042f2",
+            "name": "tennis_activity_recognition_80x_on_steval_mkboxpro",
+            "description": "Model to recognize tennis shots, with an Auto-ML based approach.",
+            "creation_time": "2026-04-27 15:35:49.502283",
+            "last_update_time": "2026-04-27 15:35:49.502286",
+            "model_owner_uuid": "d2a55444-90f1-7018-9a49-b90c3a197d0b",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "no_shot",
+                    "serve",
+                    "backhand_slice",
+                    "forehand_slice",
+                    "backhand",
+                    "forehand"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01kq7sa7nmeh8a3achg92m4a94",
+                "name": "tennis_activity_recognition_80x_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv80x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv80x_mlc.json",
+                    "lsm6dsv80x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "64b40176-b8f1-4411-beb3-1fb484fd80d1",
+            "name": "tennis_activity_recognition_320x_on_steval_mkboxpro",
+            "description": "Model to recognize tennis shots, with an Auto-ML based approach.",
+            "creation_time": "2026-04-27 15:35:49.502284",
+            "last_update_time": "2026-04-27 15:35:49.502289",
+            "model_owner_uuid": "d2a55444-90f1-7018-9a49-b90c3a197d0b",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "no_shot",
+                    "serve",
+                    "backhand_slice",
+                    "forehand_slice",
+                    "backhand",
+                    "forehand"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01kq7sa9b105sbgkn54s730w2m",
+                "name": "tennis_activity_recognition_320x_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv320x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv320x_mlc.json",
+                    "lsm6dsv320x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "01aeeb01-0709-4867-8d11-3a3bddaa35cf",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;8",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_5_0.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "2f24f9df-76c3-4862-87fc-7bda11fdd49d",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/FP_SNS_DATALOG2_Datalog2-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:FP_SNS_DATALOG2_Datalog2;8",
+            "binary_uri": "/usb/bin/steval-mkboxpro/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 451,
+            "protocol": 2
+        },
+        {
+            "uuid": "7b000fe7-fe05-4723-8715-65a4fef6fcdf",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_1_0_0.bin",
+            "binary_id": 517,
+            "protocol": 2
+        },
+        {
+            "uuid": "d5242766-261c-40f6-92ed-f1d864f3cb4e",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG_RUST-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG_RUST;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_RUST_1_0_0.bin",
+            "binary_id": 516,
+            "protocol": 2
+        },
+        {
+            "uuid": "d9b01de9-042f-480d-a218-d99e804bf42c",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 484,
+            "protocol": 1
+        },
+        {
+            "uuid": "3808d795-1abd-466d-bcad-f2dd03f3dced",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_SSM-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_SSM;1",
+            "binary_uri": "/bluestsdkv2/bin/steval-mkboxpro/STAIOTCRAFT_AI_SSM_1_0_0.bin",
+            "binary_id": 529,
+            "protocol": 0,
+            "bluest_v3_payload": {
+                "device_id": "0x0D",
+                "fw_id": "0x29",
+                "payload_id": "0x0001",
+                "decoding_schema": [
+                    {
+                        "component": "lsm6dsv16x_mlc",
+                        "telemetry": "label_id",
+                        "type": "int8_t"
+                    }
+                ]
+            }
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "7fade1e7-d2a9-4f47-95f6-cace07d20b55",
+            "description": "<h1>Test</h1>",
+            "display_name": "<h1>Test</h1>",
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": ""
+            },
+            "last_update_time": "2026-05-11 13:42:44.783352",
+            "last_deploy_result": "success",
+            "leaf": [
+                {
+                    "gateway_id": "gw_0",
+                    "description": "Leaf device at position 0.",
+                    "display_name": "leaf_0",
+                    "device_id": "leaf_0",
+                    "datalogging": "2f24f9df-76c3-4862-87fc-7bda11fdd49d",
+                    "inference": {
+                        "application": "d9b01de9-042f-480d-a218-d99e804bf42c",
+                        "firmware_update": false,
+                        "supported_applications": [
+                            "d9b01de9-042f-480d-a218-d99e804bf42c",
+                            "3808d795-1abd-466d-bcad-f2dd03f3dced"
+                        ],
+                        "models": [
+                            {
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv320x_mlc",
+                                "model_name_reference": "tennis_activity_recognition_320x_on_steval_mkboxpro"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "gateway": [
+                {
+                    "application": "01aeeb01-0709-4867-8d11-3a3bddaa35cf",
+                    "description": "Gateway device at position 0.",
+                    "display_name": "gateway_0",
+                    "device_id": "gw_0",
+                    "wifi_mode": "off"
+                }
+            ]
+        }
+    ]
+}

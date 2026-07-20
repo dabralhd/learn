@@ -1,0 +1,192 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "ai_project_name": "joystick",
+    "display_name": "Joystick Project",
+    "description": "Simple example of Joystick Project implemented using the accelerometer and gyroscope of the LSM6DSV16X sensor.\n\nWith this example, you can monitor the motion of the joystick. You can clone and retrain the model to adapt classes to your use case. To use this example, simply position the board on top of the item, ensuring it is secured firmly.",
+    "type": "entertainment",
+    "uuid": "64227c8c-3e88-4924-9a22-2472b008dec5",
+    "version": "1.0.0",
+    "creation_time": "2026-05-26 16:23:12.892744",
+    "last_update_time": "2026-05-26 16:23:12.892744",
+    "project_owner_uuid": "363af7b3-752e-40df-855d-a5ebc3801d8e",
+    "models": [
+        {
+            "uuid": "05eefd04-1f7f-4d81-bde2-c1db7604320f",
+            "name": "joystick_monitoring_on_steval_mkboxpro",
+            "description": "Model to recognize motion of the joystick, with an Auto-ML based approach.",
+            "creation_time": "2026-05-26 16:23:12.892760",
+            "last_update_time": "2026-05-26 16:23:12.892764",
+            "model_owner_uuid": "363af7b3-752e-40df-855d-a5ebc3801d8e",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "none",
+                    "forward",
+                    "left",
+                    "right"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01ksjhhvayx2vkchx422nhgqed",
+                "name": "joystick_monitoring_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv16x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv16x_mlc.json",
+                    "lsm6dsv16x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "690beb24-4f9b-484d-b44b-6eb5506b0911",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;9",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.1.RC1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_6_0_RC1.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "cf844ef1-47b4-4666-bd4f-eb2a0074a278",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/FP_SNS_DATALOG2_Datalog2-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:FP_SNS_DATALOG2_Datalog2;8",
+            "binary_uri": "/usb/bin/steval-mkboxpro/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 451,
+            "protocol": 2
+        },
+        {
+            "uuid": "0a3e9c9f-a6be-485c-8a23-d55207742d3f",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_1_0_0.bin",
+            "binary_id": 517,
+            "protocol": 2
+        },
+        {
+            "uuid": "3d42a081-6c42-44bd-a2ad-60d657fe69e3",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG_RUST-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG_RUST;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_RUST_1_0_0.bin",
+            "binary_id": 516,
+            "protocol": 2
+        },
+        {
+            "uuid": "8aacf8ee-a54d-4c04-98bc-1ab40e99b03a",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 484,
+            "protocol": 1
+        },
+        {
+            "uuid": "24424c10-39c0-4893-aace-08d91d423a17",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_SSM-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_SSM;1",
+            "binary_uri": "/bluestsdkv2/bin/steval-mkboxpro/STAIOTCRAFT_AI_SSM_1_0_0.bin",
+            "binary_id": 529,
+            "protocol": 0,
+            "bluest_v3_payload": {
+                "device_id": "0x0D",
+                "fw_id": "0x29",
+                "payload_id": "0x0001",
+                "decoding_schema": [
+                    {
+                        "component": "lsm6dsv16x_mlc",
+                        "telemetry": "label_id",
+                        "type": "int8_t"
+                    }
+                ]
+            }
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "47fd2b4a-1733-4314-b717-e78899ac0422",
+            "display_name": "Joystick Project with SensorTile.box PRO and LSM6DSV16X sensor.",
+            "description": "End-to-end system deployment for Joystick Project use case on the SensorTile.box PRO using the LSM6DSV16X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "690beb24-4f9b-484d-b44b-6eb5506b0911",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "cf844ef1-47b4-4666-bd4f-eb2a0074a278"
+                        ],
+                        "application": "cf844ef1-47b4-4666-bd4f-eb2a0074a278",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "joystick_monitoring_on_steval_mkboxpro"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "0a3e9c9f-a6be-485c-8a23-d55207742d3f",
+                            "3d42a081-6c42-44bd-a2ad-60d657fe69e3"
+                        ],
+                        "application": "0a3e9c9f-a6be-485c-8a23-d55207742d3f",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "joystick_monitoring_on_steval_mkboxpro",
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv16x_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

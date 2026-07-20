@@ -1,0 +1,326 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "ai_project_name": "project_name_731618_shared",
+    "display_name": "Drilling Machine",
+    "description": "Classification of drill actions using the MLC to detect idle, screw, drilling or percussive drilling states.\n\nThis system provides an example of classifying specific actions rather than simple vibrations, enabling the detection of the operating modes of a common household power drill: screwing, drilling, and percussive drilling, or being stationary. Since motion recognition can be very specific, you can clone this project to retrain it and tailor it to a different drill. To use this example, affix the board firmly to the top side of the drill. Keep in mind that vibrations may dislodge the board, and classification accuracy improves the more securely it is attached to the machine.",
+    "type": "industrial",
+    "uuid": "6845e061-fa34-4f8d-abd6-283d8a43ffd5",
+    "version": "1.0.0",
+    "creation_time": "2026-05-06 09:20:50.803504",
+    "last_update_time": "2026-05-06 09:20:50.803504",
+    "project_owner_uuid": "90ab4947-c200-4776-a316-d02c3041c4b8",
+    "models": [
+        {
+            "uuid": "66abd530-860d-4dec-bcd9-b8a247ec6b2a",
+            "name": "drilling_machine_on_steval_stwinbx1",
+            "description": "Model to monitor a drill, with an Auto-ML based approach.",
+            "creation_time": "2026-05-06 09:20:50.803518",
+            "last_update_time": "2026-05-06 09:20:50.803526",
+            "model_owner_uuid": "90ab4947-c200-4776-a316-d02c3041c4b8",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "idle",
+                    "screwing",
+                    "drilling",
+                    "percussive_drilling"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01kqy9e3g1j4ga766mkg117yr1",
+                "name": "drilling_machine_on_steval_stwinbx1"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "ism330dhcx",
+                "device": "steval-stwinbx1"
+            },
+            "data_sufficiency": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-ds-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": null,
+                "artifacts": [
+                    "activities_training.json",
+                    "counts.json",
+                    "feat_names.json",
+                    "kmeans_cluster_labels.json",
+                    "lda.onnx",
+                    "my_kmeans.json",
+                    "my_tree.onnx",
+                    "window_size_odr_channels.json"
+                ],
+                "reports": []
+            },
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "ism330dhcx_mlc.json",
+                    "ism330dhcx_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "6876410f-e232-477c-a659-189a8528e838",
+            "name": "drilling_machine_on_steval_stwinkt1b",
+            "description": "Model to monitor a drill, with an Auto-ML based approach.",
+            "creation_time": "2026-05-06 09:20:50.803522",
+            "last_update_time": "2026-05-06 09:20:50.803532",
+            "model_owner_uuid": "90ab4947-c200-4776-a316-d02c3041c4b8",
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "idle",
+                    "screwing",
+                    "drilling",
+                    "percussive_drilling"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01kqy9e4z7ez0nrmvpatyqcqna",
+                "name": "drilling_machine_on_steval_stwinkt1b"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "ism330dhcx",
+                "device": "steval-stwinkt1b"
+            },
+            "data_sufficiency": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-ds-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": null,
+                "artifacts": [
+                    "activities_training.json",
+                    "counts.json",
+                    "feat_names.json",
+                    "hnne.pkl",
+                    "kmeans_cluster_labels.json",
+                    "my_kmeans.json",
+                    "my_tree.onnx",
+                    "window_size_odr_channels.json"
+                ],
+                "reports": []
+            },
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "ism330dhcx_mlc.json",
+                    "ism330dhcx_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "0ea195f7-e0ec-404a-9bc0-4f51f1d4e973",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;8",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-8.1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_5_0.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "630dc607-727d-4fdc-8b7b-2e310e80541a",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_stwinbx1/FP_SNS_DATALOG2_Datalog2-10.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_stwinbx1:FP_SNS_DATALOG2_Datalog2;10",
+            "binary_uri": "/usb/bin/steval-stwinbx1/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 454,
+            "protocol": 2
+        },
+        {
+            "uuid": "511e3069-2f8c-4327-812d-2af23bb6a42f",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_stwinbx1/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_stwinbx1:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-stwinbx1/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 485,
+            "protocol": 1
+        },
+        {
+            "uuid": "42d1acf1-2289-407c-abd6-744e7d00348d",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_stwinkt1b/FP_SNS_DATALOG2_Datalog2-4.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_stwinkt1b:FP_SNS_DATALOG2_Datalog2;4",
+            "binary_uri": "/usb/bin/steval-stwinkt1b/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 456,
+            "protocol": 2
+        },
+        {
+            "uuid": "1be13aa4-ce37-4994-a2b7-193a3d34279b",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_stwinkt1b/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_stwinkt1b:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-stwinkt1b/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 486,
+            "protocol": 1
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "eab3b1b0-b228-4623-8772-ee8baaa04070",
+            "display_name": "Drilling Machine monitoring with STWIN.box and ISM330DHCX sensor.",
+            "description": "End-to-end system deployment for Drilling Machine monitoring use case on the STWIN.box using the ISM330DHCX sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "f6588b73-9deb-4bb5-8d9c-2b59dd74c722",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "8636f648-272e-405f-85b4-12f5bbd9c59a"
+                        ],
+                        "application": "8636f648-272e-405f-85b4-12f5bbd9c59a",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "drilling_machine_on_steval_stwinbx1"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "0cec5e26-a09a-4ecb-8897-21fdc7bcb8dd"
+                        ],
+                        "application": "0cec5e26-a09a-4ecb-8897-21fdc7bcb8dd",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "drilling_machine_on_steval_stwinbx1",
+                                "artifact_type": "json",
+                                "component_name": "ism330dhcx_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "uuid": "295f77d1-b8f5-49fe-8a62-3a79456f1c55",
+            "display_name": "Drilling Machine monitoring with STWIN and ISM330DHCX sensor.",
+            "description": "End-to-end system deployment for Drilling Machine monitoring use case on the STWIN using the ISM330DHCX sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "f6588b73-9deb-4bb5-8d9c-2b59dd74c722",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "e28f9667-886a-4ce1-95b0-9a49eb042bcc"
+                        ],
+                        "application": "e28f9667-886a-4ce1-95b0-9a49eb042bcc",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "drilling_machine_on_steval_stwinkt1b"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "cf937898-e35d-4177-999b-640894b78e57"
+                        ],
+                        "application": "cf937898-e35d-4177-999b-640894b78e57",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "drilling_machine_on_steval_stwinkt1b",
+                                "artifact_type": "json",
+                                "component_name": "ism330dhcx_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "uuid": "uuid_to_replace_project",
+    "ai_project_name": "get_started_terrain_classification_mlc",
+    "type": "industrial",
+    "display_name": "Terrain Classification with MLC",
+    "description": "Classification of terrain using the MLC, including smooth, rough, and stationary terrains.\n\nThis example leverages the accelerometer sensor.",
+    "version": "1.0.0",
+    "creation_time": null,
+    "last_update_time": null,
+    "project_owner_uuid": null,
+    "models": [
+        {
+            "uuid": "uuid_to_replace_model1",
+            "name": "terrain_classification_on_steval_robkit1",
+            "description": "MLC model for classifying terrain as smooth, rough, or stationary.",
+            "dataset": {
+                "name": "terrain_classification_on_steval_robkit1",
+                "dataset_id": "01kj87xvpys8gecvyt1pkvgbn9"
+            },
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "SMOOTH",
+                    "ROUGH",
+                    "STATIONARY"
+                ]
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv16bx",
+                "device": "steval-robkit1"
+            },
+            "creation_time": null,
+            "last_update_time": null,
+            "model_owner_uuid": null,
+            "training": {
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "reports": [
+                    "report.json"
+                ],
+                "artifacts": [
+                    "lsm6dsv16bx_mlc.json",
+                    "lsm6dsv16bx_mlc.h"
+                ],
+                "last_update_time": null,
+                "creation_time": null
+            }
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "uuid_to_replace_application1",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;9",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.1.RC1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_6_0_RC1.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "uuid_to_replace_application2",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval-robkit1/STSW_ROBKIT1-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_robkit1:STSW_ROBKIT1;1",
+            "binary_uri": "/usb/bin/steval-robkit1/STSW-ROBKIT1_2_1_0.bin",
+            "binary_id": 478,
+            "protocol": 0
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "uuid_to_replace_deployment1",
+            "display_name": "Terrain Classification with STEVAL-Robkit1 and LSM6DSV16BX sensor.",
+            "description": "End-to-end system deployment for Terrain Classification use case on the STEVAL-Robkit1 using the LSM6DSV16BX sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "uuid_to_replace_application1",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "uuid_to_replace_application2"
+                        ],
+                        "application": "uuid_to_replace_application2",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "terrain_classification_on_steval_robkit1"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "uuid_to_replace_application2"
+                        ],
+                        "application": "uuid_to_replace_application2",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "terrain_classification_on_steval_robkit1",
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv16bx_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

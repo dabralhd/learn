@@ -1,0 +1,305 @@
+{
+    "$schema": "/data/artifacts/.assets/schemas/ai_main_schema.json",
+    "schema_version": "v12",
+    "ai_project_name": "get_started_tennis_activity_mlc",
+    "display_name": "Tennis Activity Recognition",
+    "description": "Classification of tennis shots using the MLC, including forehand, backhand, slice-forehand, slice-backhand, and serve strokes.\n\nThis example leverages both the accelerometer and the gyroscope sensors to better detect the movements. To use this example effectively, plug the DIL24 extension onto the board and place the board on the outside of the right wrist and secure it firmly. Make sure it is oriented in such a way that the two buttons are facing toward your shoulder, with the LEDs and logos visible and facing outward. In case you need a different placement on the wrist or want to add some more movements of your own, just clone the project into your workspace, collect a new dataset, and retrain the model.",
+    "type": "entertainment",
+    "uuid": "uuid_to_replace_project",
+    "version": "1.0.0",
+    "creation_time": null,
+    "last_update_time": null,
+    "project_owner_uuid": null,
+    "models": [
+        {
+            "uuid": "uuid_to_replace_model1",
+            "name": "tennis_activity_recognition_80x_on_steval_mkboxpro",
+            "description": "Model to recognize tennis shots, with an Auto-ML based approach.",
+            "creation_time": null,
+            "last_update_time": null,
+            "model_owner_uuid": null,
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "no_shot",
+                    "serve",
+                    "backhand_slice",
+                    "forehand_slice",
+                    "backhand",
+                    "forehand"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01k5749f66xv7mnj11apsg4h5s",
+                "name": "tennis_activity_recognition_80x_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv80x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv80x_mlc.json",
+                    "lsm6dsv80x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        },
+        {
+            "uuid": "uuid_to_replace_model2",
+            "name": "tennis_activity_recognition_320x_on_steval_mkboxpro",
+            "description": "Model to recognize tennis shots, with an Auto-ML based approach.",
+            "creation_time": null,
+            "last_update_time": null,
+            "model_owner_uuid": null,
+            "metadata": {
+                "type": "classifier",
+                "classes": [
+                    "no_shot",
+                    "serve",
+                    "backhand_slice",
+                    "forehand_slice",
+                    "backhand",
+                    "forehand"
+                ]
+            },
+            "dataset": {
+                "dataset_id": "01k574904rzbfw3wbkq6dex776",
+                "name": "tennis_activity_recognition_320x_on_steval_mkboxpro"
+            },
+            "target": {
+                "type": "mlc",
+                "component": "lsm6dsv320x",
+                "device": "steval-mkboxpro"
+            },
+            "data_sufficiency": null,
+            "training": {
+                "creation_time": null,
+                "last_update_time": null,
+                "runtime": {
+                    "type": "job",
+                    "jobs": [
+                        {
+                            "name": "mlctools-job",
+                            "version": null,
+                            "template_id": null
+                        }
+                    ]
+                },
+                "configuration": "configuration.json",
+                "artifacts": [
+                    "lsm6dsv320x_mlc.json",
+                    "lsm6dsv320x_mlc.h"
+                ],
+                "reports": [
+                    "report.json"
+                ]
+            },
+            "codegen": null,
+            "building": null
+        }
+    ],
+    "applications": [
+        {
+            "uuid": "uuid_to_replace_application1",
+            "type": "gateway",
+            "device_template_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.expanded.json",
+            "device_template_id": "dtmi:appconfig:gateway:MLC_Gateway;9",
+            "device_manifest_uri": "/e2e_systems/gateway/dtmi/appconfig/gateway/MLC_Gateway-9.1.RC1.manifest.arm64v8.json",
+            "image_uri": "/e2e_systems/gateway/images/raspberrypi/staiotcraft_rpi_gateway_1_6_0_RC1.img.gz",
+            "module_id": "edgeMLC"
+        },
+        {
+            "uuid": "uuid_to_replace_application2",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/FP_SNS_DATALOG2_Datalog2-8.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:FP_SNS_DATALOG2_Datalog2;8",
+            "binary_uri": "/usb/bin/steval-mkboxpro/FP-SNS-DATALOG2_Datalog2_3_2_0.bin",
+            "binary_id": 451,
+            "protocol": 2
+        },
+        {
+            "uuid": "uuid_to_replace_application3",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_1_0_0.bin",
+            "binary_id": 517,
+            "protocol": 2
+        },    
+        {
+            "uuid": "uuid_to_replace_application4",
+            "type": "datalogging",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_SDATALOG_RUST-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_SDATALOG_RUST;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_SDATALOG_RUST_1_0_0.bin",
+            "binary_id": 516,
+            "protocol": 2
+        },
+        {
+            "uuid": "uuid_to_replace_application5",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_Inertial-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_Inertial;1",
+            "binary_uri": "/usb/bin/steval-mkboxpro/STAIOTCRAFT_AI_Inertial_1_2_0.bin",
+            "binary_id": 484,
+            "protocol": 1
+        },
+        {
+            "uuid": "uuid_to_replace_application6",
+            "type": "inference",
+            "device_template_uri": "/dtmi/appconfig/steval_mkboxpro/STAIOTCRAFT_AI_SSM-1.expanded.json",
+            "device_template_id": "dtmi:appconfig:steval_mkboxpro:STAIOTCRAFT_AI_SSM;1",
+            "binary_uri": "/bluestsdkv2/bin/steval-mkboxpro/STAIOTCRAFT_AI_SSM_1_0_0.bin",
+            "binary_id": 529,
+            "protocol": 0,
+            "bluest_v3_payload": {
+                "device_id": "0x0D",
+                "fw_id": "0x29",
+                "payload_id": "0x0001",
+                "decoding_schema": [
+                    {
+                        "component": "lsm6dsv16x_mlc",
+                        "telemetry": "label_id",
+                        "type": "int8_t"
+                    }
+                ]
+            }
+        }
+    ],
+    "deployments": [
+        {
+            "uuid": "uuid_to_replace_deployment1",
+            "display_name": "Tennis Activity Recognition with SensorTile.box PRO and LSM6DSV80X sensor.",
+            "description": "End-to-end system deployment for Tennis Activity Recognition use case on the SensorTile.box PRO using the LSM6DSV80X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "uuid_to_replace_application1",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "uuid_to_replace_application2",
+                            "uuid_to_replace_application4"
+                        ],
+                        "application": "uuid_to_replace_application2",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "tennis_activity_recognition_80x_on_steval_mkboxpro"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "uuid_to_replace_application5",
+                            "uuid_to_replace_application6"
+                        ],
+                        "application": "uuid_to_replace_application5",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "tennis_activity_recognition_80x_on_steval_mkboxpro",
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv16x_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "uuid": "uuid_to_replace_deployment2",
+            "display_name": "Tennis Activity Recognition with SensorTile.box PRO and LSM6DSV320X sensor.",
+            "description": "End-to-end system deployment for Tennis Activity Recognition use case on the SensorTile.box PRO using the LSM6DSV320X sensor.",
+            "last_update_time": null,
+            "last_deploy_result": null,
+            "cloud_params": {
+                "type": "azure_iotc",
+                "app_url": null
+            },
+            "gateway": [
+                {
+                    "device_id": "gateway_0",
+                    "display_name": "gateway_0",
+                    "gateway_id": null,
+                    "description": "Gateway device at position 0.",
+                    "application": "uuid_to_replace_application1",
+                    "wifi_mode": "off"
+                }
+            ],
+            "leaf": [
+                {
+                    "device_id": "leaf_0",
+                    "display_name": "leaf_0",
+                    "gateway_id": "gateway_0",
+                    "description": "Leaf device at position 0.",
+                    "datalogging": {
+                        "supported_applications": [
+                            "uuid_to_replace_application2",
+                            "uuid_to_replace_application4"
+                        ],
+                        "application": "uuid_to_replace_application2",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "tennis_activity_recognition_320x_on_steval_mkboxpro"
+                            }
+                        ]
+                    },
+                    "inference": {
+                        "supported_applications": [
+                            "uuid_to_replace_application5",
+                            "uuid_to_replace_application6"
+                        ],
+                        "application": "uuid_to_replace_application5",
+                        "firmware_update": false,
+                        "models": [
+                            {
+                                "model_name_reference": "tennis_activity_recognition_320x_on_steval_mkboxpro",
+                                "artifact_type": "json",
+                                "component_name": "lsm6dsv16x_mlc"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
